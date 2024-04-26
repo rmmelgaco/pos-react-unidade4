@@ -1,12 +1,12 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-import IProduto from "../../interfaces/iProduct.tsx";
+import iProduct from "../../interfaces/iProduct.tsx";
 import Produto from "../../components/produto";
 import './style.css'
 
 export default function Produtos() {
 
-    const [products, setProducts] = useState<IProduto[]>([])
+    const [products, setProducts] = useState<iProduct[]>([])
 
     function recuperaProdutos() {
         axios.get('https://dummyjson.com/products').then(
