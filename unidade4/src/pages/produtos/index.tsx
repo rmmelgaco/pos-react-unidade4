@@ -24,7 +24,7 @@ export default function Produtos() {
     }, [])
 
     return (<div>
-        <h3>Produtos</h3>
+        <h1 className='tituloPaginaProdutos'>Produtos</h1>
         <div className='listaProdutos'>{products.map(product => {
             return (<Produto key={product.id} product={product}/>)
         })}

@@ -12,6 +12,8 @@ export default function Produto({product}: ProdutoProps) {
             <div className='container_produto_card'>
                 <p>{product.title}</p>
                 <img src={product.thumbnail} width="300"/>
+                <p>R$ {product.price}</p>
+                <p>Desconto: {product.discountPercentage}%</p>
             </div>
         </Link>
     )

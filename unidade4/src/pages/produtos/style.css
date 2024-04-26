@@ -1,4 +1,10 @@
+.tituloPaginaProdutos {
+    text-align: center;
+}
+
 .listaProdutos {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
