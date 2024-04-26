@@ -1,14 +1,17 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-import Produto from "../../interfaces/iProduct.tsx";
+import IProduto from "../../interfaces/iProduct.tsx";
+import Produto from "../../components/produto";
+import './style.css'
 
 export default function Produtos() {
 
-    const [products, setProducts] = useState<Produto[]>([])
+    const [products, setProducts] = useState<IProduto[]>([])
 
     function recuperaProdutos() {
         axios.get('https://dummyjson.com/products').then(
             (response) => {
+                console.log(response.data.products)
                 setProducts(response.data.products)
             }
         ).catch(error => {
@@ -22,10 +25,9 @@ export default function Produtos() {
 
     return (<div>
         <h3>Produtos</h3>
-        {products.map(produto => {
-            return (<div>
-                <p>{produto.title}</p>
-            </div>)
+        <div className='listaProdutos'>{products.map(product => {
+            return (<Produto key={product.id} product={product}/>)
         })}
+        </div>
     </div>)
 }
