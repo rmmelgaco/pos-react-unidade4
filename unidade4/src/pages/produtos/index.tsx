@@ -3,15 +3,21 @@ import {useEffect, useState} from "react";
 import iProduct from "../../interfaces/iProduct.tsx";
 import Produto from "../../components/produto";
 import './style.css'
+import MenuCategoriasProdutos from "../../components/menucategoriasprodutos";
+import {useParams} from "react-router-dom";
 
 export default function Produtos() {
 
+    const {categoria} = useParams();
     const [products, setProducts] = useState<iProduct[]>([])
 
     function recuperaProdutos() {
-        axios.get('https://dummyjson.com/products').then(
+        let url = 'https://dummyjson.com/products';
+        if (categoria && categoria !== 'TODAS') {
+            url += `/category/${categoria}`
+        }
+        axios.get(url).then(
             (response) => {
-                console.log(response.data.products)
                 setProducts(response.data.products)
             }
         ).catch(error => {
@@ -21,10 +27,11 @@ export default function Produtos() {
 
     useEffect(() => {
         recuperaProdutos()
-    }, [])
+    }, [categoria])
 
     return (<div>
-        <h1 className='tituloPaginaProdutos'>Produtos</h1>
+        <MenuCategoriasProdutos/>
+        <h1 className='tituloPaginaProdutos'>Produtos {categoria && categoria !== 'TODAS' ? " - " + categoria : ""}</h1>
         <div className='listaProdutos'>{products.map(product => {
             return (<Produto key={product.id} product={product}/>)
         })}

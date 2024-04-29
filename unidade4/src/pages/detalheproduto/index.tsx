@@ -4,7 +4,7 @@ import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
 import './index.css'
 
-export default function Index() {
+export default function DetalheProduto() {
 
     const {idProduto} = useParams();
     const [product, setProduct] = useState<IProduct>({} as IProduct)

@@ -1,0 +1,31 @@
+#menu {
+    margin: 0; padding: 0;
+    float: left;
+}
+
+#menu h3{
+    margin: 20px;
+}
+
+#menu ul li {
+    padding: 0px;
+    margin: 0 0 10px;
+    border-bottom: 1px solid #CCC;
+    text-align: left;
+    list-style-type: none;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
