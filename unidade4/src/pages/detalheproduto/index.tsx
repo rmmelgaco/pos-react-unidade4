@@ -1,12 +1,14 @@
 import IProduct from "../../interfaces/iProduct.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import './index.css'
 
-export default function DetalheProduto() {
+export default function Index() {
 
     const {idProduto} = useParams();
     const [product, setProduct] = useState<IProduct>({} as IProduct)
+    const navigate = useNavigate()
 
     function recuperaProduto() {
         axios.get(`https://dummyjson.com/products/${idProduto}`).then(
@@ -23,5 +25,15 @@ export default function DetalheProduto() {
         recuperaProduto()
     }, [])
 
-    return <h1>{product.title}</h1>
+    return (
+        <div className='container_detalhe_produto'>
+            <h2>{product.category}</h2>
+            <h1>{product.title} - {product.brand} </h1>
+            <h3>{product.description}</h3>
+            <p>R${product.price} ({product.discountPercentage}% de desconto)</p>
+            <p>{product.stock} itens em estoque</p>
+            <img src={product.thumbnail}/>
+            <button onClick={() => navigate('/')}>Voltar</button>
+        </div>
+    )
 }

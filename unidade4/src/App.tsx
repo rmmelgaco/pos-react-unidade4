@@ -1,6 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Produtos from "./pages/produtos";
-import DetalheProduto from "./pages/detalheproduto/detalheProduto.tsx";
+import Index from "./pages/detalheproduto";
 
 const router = createBrowserRouter([
     {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/produto/:idProduto',
-        element: <DetalheProduto/>
+        element: <Index/>
     }
 ])
 

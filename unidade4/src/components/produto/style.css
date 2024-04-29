@@ -6,7 +6,21 @@
     justify-content: center;
     margin: 10px;
     width: 300px;
-    height: 500px;
+    height: 350px;
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    a:active {
+        text-decoration: none;
+    }
 }
 
 .container_produto_card img {
